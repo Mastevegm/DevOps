@@ -1,0 +1,18 @@
+services: 
+  datascience-notebook:
+     image: mstevegm/proyecto-datascience-notbook
+     environment:
+       - JUPYTER-TOKEN=${key_secret}
+     volumes: 
+       - ${PWD}:/home/jovyan/work 
+     ports: 
+       - "8888:8888"
+
+  spark-notebook:
+     image: jupyter/pyspark-notebook
+     environment:
+       - JUPYTER_TOKEN=${key-secret}
+     volumes:
+       - ${PWD}:/home/jovyan/work
+     port:
+       -"8888:8888"
